@@ -1,0 +1,9 @@
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.DATABASE, async () => {
+  try {
+    console.log("Database is Connected succesfully");
+  } catch (error) {
+    console.log(error);
+  }
+});

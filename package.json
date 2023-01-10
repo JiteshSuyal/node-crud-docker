@@ -1,0 +1,30 @@
+{
+  "name": "backend-gitaction",
+  "version": "1.0.0",
+  "description": "cicd",
+  "main": "index.js",
+  "scripts": {
+    "dev":"nodemon index.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JiteshSuyal/backend-gitaction.git"
+  },
+  "author": "jit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JiteshSuyal/backend-gitaction/issues"
+  },
+  "homepage": "https://github.com/JiteshSuyal/backend-gitaction#readme",
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.3"
+  }
+}
