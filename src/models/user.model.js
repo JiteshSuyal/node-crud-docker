@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema(
       type: String,
       default: null,
     },
-    password: {
+    username: {
       type: String,
       default: null,
     },
@@ -14,21 +14,25 @@ const userSchema = mongoose.Schema(
       type: String,
       unique: true,
     },
-    isVerified: { type: Boolean, default: false },
-    type: {
-      type: String,
-      enum: ["client", "admin"],
-      default: "client",
-    },
-    token: [],
-    otp: {
+    phone: {
       type: Number,
-      default: null,
+      required: true,
     },
-    code: {
-      type: String,
-      default: null,
-    },
+    // isVerified: { type: Boolean, default: false },
+    // type: {
+    //   type: String,
+    //   enum: ["client", "admin"],
+    //   default: "client",
+    // },
+    // token: [],
+    // otp: {
+    //   type: Number,
+    //   default: null,
+    // },
+    // code: {
+    //   type: String,
+    //   default: null,
+    // },
   },
   { timestamps: true }
 );
