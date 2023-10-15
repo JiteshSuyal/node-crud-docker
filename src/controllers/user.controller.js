@@ -1,38 +1,9 @@
 const User = require("../models/user.model");
 
-// //normal signup using name, email, password
-// const signUp = async (req, res) => {
-//   try {
-//     const { name, email, password, confirmPassword } = req.body;
-//     if (password != confirmPassword) {
-//       throw { message: "Passwords do not match" };
-//     }
-//     const userData = await User.findOne({ email: email, type: "client" });
-//     if (userData) {
-//       throw { message: "The user is already present" };
-//     }
-//     const createUser = await User.create({
-//       name: name,
-//       email: email,
-//       password: password,
-//       type: "client",
-//       isVerified: false,
-//     });
-//     return res.status(200).json({
-//       success: true,
-//       message: "User created successfully",
-//       data: createUser,
-//     });
-//   } catch (e) {
-//     console.log(e);
-//     return res.status(400).send({ error: e });
-//   }
-// };
-
 //normal sign in
 const create = async (req, res) => {
   try {
-    const { name, username, email, phone } = req.body;
+    const { name, email } = req.body;
     const userData = await User.findOne({
       email: email,
     });
@@ -41,9 +12,7 @@ const create = async (req, res) => {
     }
     const createUser = await User.create({
       name: name,
-      username: username,
       email: email,
-      phone: phone,
     });
     return res.status(200).json({
       success: true,
@@ -73,10 +42,10 @@ const read = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const { name, username, email, phone } = req.body;
+    const { name, email } = req.body;
     const updateUser = await User.findOneAndUpdate(
       { email: email },
-      { name: name, username: username, email: email, phone: phone },
+      { name: name, email: email },
       { new: true }
     );
     if (!updateUser) {

@@ -6,18 +6,18 @@ const userSchema = mongoose.Schema(
       type: String,
       default: null,
     },
-    username: {
-      type: String,
-      default: null,
-    },
+    // username: {
+    //   type: String,
+    //   default: null,
+    // },
     email: {
       type: String,
       unique: true,
     },
-    phone: {
-      type: Number,
-      required: true,
-    },
+    // phone: {
+    //   type: Number,
+    //   required: true,
+    // },
     // isVerified: { type: Boolean, default: false },
     // type: {
     //   type: String,
