@@ -20,6 +20,7 @@ const create = async (req, res) => {
       data: createUser,
     });
   } catch (e) {
+    console.log(e);
     return res.status(400).send({ error: e });
   }
 };

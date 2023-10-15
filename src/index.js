@@ -1,21 +1,27 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const morgan = require("morgan");
 
 // Environment Path
 require("dotenv").config({ path: "./config.env" });
 
 // Routes
-const userRoute = require("./src/routes/user.route");
+const userRoute = require("./routes/user.route");
 
 // Environment Variable
 const port = process.env.PORT;
 
 // Database Connection
-require("./src/db/connection");
+require("./db/connection");
 
 app.use(cors());
 app.use(express.json());
+app.use(
+  morgan(
+    "[:method] :url :date[web] :remote-addr => :status :response-time ms :res[content-length] bytes"
+  )
+);
 app.use(express.urlencoded({ extended: true }));
 
 // Calling Routes
@@ -30,7 +36,7 @@ app.use((req, res) => {
     )
     .status(400);
 });
-///just 
+///just
 /**========================================================================
  *                           Listening Port at 5000
  *========================================================================**/
