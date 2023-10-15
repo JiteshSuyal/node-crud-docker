@@ -1,0 +1,11 @@
+services:
+  api:
+    container_name: nodejs_api
+    build: .
+    ports:
+      - 3001:3001
+    volumes:
+      - .:/usr/src/index
+    environment:
+      PORT: 3001
+      DATABASE: mongodb+srv://jitesh:9158740900@cluster0.wied1.mongodb.net/gitactionDB?retryWrites=true&w=majority
